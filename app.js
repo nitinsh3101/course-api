@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const moment = require('moment');
 
 const app = express();
 const port = 3030;
@@ -23,10 +24,10 @@ app.get('/courses', (req, res) => {
     res.json({
         courses: courses,
         infraDetails: {
-            podIp: 'podIp',
-            dateTime: 'dateTime',
-            clusterInfo: 'clusterInfo',
-            workerNodeIp: 'workerNodIp'
+            podIp: process.env.POD_IP,
+            dateTime: moment().format('MMMM Do YYYY, h:mm:ss a'),
+            clusterInfo: process.env.CLUSTER_NAME,
+            workerNodeIp: process.env.NODE_IP
         }});
 });
 

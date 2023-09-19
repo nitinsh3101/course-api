@@ -26,7 +26,8 @@ jobs:
     - name: Build and Push Container
       run: |-
         export TAG=$(git rev-parse --short ${{ github.sha }})
-        docker build -t "${{ env.GAR_LOCATION }}/${{ env.IMAGE_NAME}}:${TAG}-sha" ./  
+        docker build -t "${{ env.GAR_LOCATION }}/${{ env.IMAGE_NAME}}:${TAG}-sha" ./
+        docker build -t "${{ env.GAR_LOCATION }}/${{ env.IMAGE_NAME}}:latest" ./
    
     - name: Google Auth
       id: auth
@@ -41,4 +42,4 @@ jobs:
       run: |-
         export TAG=$(git rev-parse --short ${{ github.sha }})
         docker push "${{ env.GAR_LOCATION }}/${{env.IMAGE_NAME}}:${TAG}-sha"
-    
+        docker push "${{ env.GAR_LOCATION }}/${{env.IMAGE_NAME}}:latest"

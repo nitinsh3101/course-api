@@ -25,8 +25,10 @@ app.get('/courses', (req, res) => {
         courses: courses,
         infraDetails: {
             podIp: process.env.POD_IP,
+            podName: process.env.POD_NAME,
             dateTime: moment().format('MMMM Do YYYY, h:mm:ss a'),
             clusterInfo: process.env.CLUSTER_NAME,
+            nodeName: process.env.NODE_NAME,
             workerNodeIp: process.env.NODE_IP
         }});
 });

@@ -42,5 +42,6 @@ spec:
                 fieldPath: status.hostIP
           - name: CLUSTER_NAME
             valueFrom:
-              fieldRef:
-                fieldPath: metadata.clusterName
+              configMapKeyRef:
+                key: CLUSTER_NAME
+                name: cluster-config

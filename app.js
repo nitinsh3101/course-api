@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.get('/courses', (req, res) => {
+app.get('/api/v1/courses', (req, res) => {
     res.json({
         courses: courses,
         infraDetails: {

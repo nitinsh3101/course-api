@@ -22,7 +22,7 @@ spec:
         readinessProbe:
           httpGet:
             port: web
-            path: /api/v1/cources
+            path: /api/v1/courses
         env:
           - name: POD_IP
             valueFrom:

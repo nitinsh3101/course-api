@@ -22,7 +22,7 @@ spec:
         readinessProbe:
           httpGet:
             port: web
-            path: /cources
+            path: /api/v1/cources
         env:
           - name: POD_IP
             valueFrom:

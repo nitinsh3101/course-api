@@ -21,8 +21,11 @@ spec:
           containerPort: 3030
         readinessProbe:
           httpGet:
-            port: web
             path: /api/v1/courses
+            port: web
+          initialDelaySeconds: 15 
+          periodSeconds: 20       
+          timeoutSeconds: 15
         env:
           - name: POD_IP
             valueFrom:
@@ -45,10 +48,3 @@ spec:
               configMapKeyRef:
                 key: CLUSTER_NAME        
                 name: cluster-config
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
